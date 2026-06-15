@@ -2,13 +2,22 @@ const express = require('express');
 
 const app= express();
 
-app.use("/test",(req, res)=>{res.send('test 2');})
-app.get("/test1",(req, res)=>{res.send('test 1');})
-app.post("/test3", (req, res)=>{
-    res.send('test 3');
-})
-app.delete("/delete",(req, res)=>{res.send('test 4');})
-app.patch("/patch",(req, res)=>{res.send('test 5');})
+ app.get("/user",(req, res)=>{
+    console.log("Received a GET request to /user", req.query);     
+    res.send({
+    name: 'John Doe',
+    age: 30,
+    email: "john.doe@example.com"
+ });})
+
+ app.get("/user/:id",(req, res)=>{
+    console.log("Received a params", req.params);     
+    res.send({
+    name: 'John Doe',
+    age: 30,
+    email: "john.doe@example.com"
+ });})
+
 app.use("/hello",(req, res)=>{res.send('Middleware 1');})
 
 
