@@ -3,6 +3,12 @@ const express = require('express');
 const app= express();
 
 app.use("/test",(req, res)=>{res.send('test 2');})
+app.get("/test1",(req, res)=>{res.send('test 1');})
+app.post("/test3", (req, res)=>{
+    res.send('test 3');
+})
+app.delete("/delete",(req, res)=>{res.send('test 4');})
+app.patch("/patch",(req, res)=>{res.send('test 5');})
 app.use("/hello",(req, res)=>{res.send('Middleware 1');})
 
 
